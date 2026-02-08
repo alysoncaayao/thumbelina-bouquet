@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thumbelina Bouquet</title>
+<style>
+  body {
+    margin: 0;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f0e6f6;
+    overflow: hidden;
+  }
+
+  #bouquet {
+    display: none;
+    position: relative;
+    width: 200px;
+    height: 400px;
+  }
+
+  .flower {
+    position: absolute;
+    bottom: 0;
+    width: 50px;
+    height: 50px;
+    background: pink;
+    border-radius: 50%;
+    animation: rise 3s ease-out forwards;
+  }
+
+  @keyframes rise {
+    0% { transform: translateY(400px) scale(0); opacity: 0; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+  }
+
+  #qr-container {
+    text-align: center;
+  }
+
+  img {
+    width: 200px;
+    height: 200px;
+  }
+
+  button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #c97ad1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div id="qr-container">
+  <h2>Scan this QR code</h2>
+  <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://your-bouquet-page.com&size=200x200" alt="QR Code">
+  <p>After scanning, view the Thumbelina bouquet!</p>
+</div>
+
+<div id="bouquet">
+  <div class="flower" style="left: 20px; background: pink;"></div>
+  <div class="flower" style="left: 60px; background: lightblue;"></div>
+  <div class="flower" style="left: 100px; background: yellow;"></div>
+  <div class="flower" style="left: 140px; background: purple;"></div>
+  <div class="flower" style="left: 180px; background: red;"></div>
+</div>
+
+<script>
+  // Simulate scanning QR and showing bouquet
+  // In real life, scanning the QR opens this page directly
+  function showBouquet() {
+    document.getElementById('qr-container').style.display = 'none';
+    document.getElementById('bouquet').style.display = 'block';
+  }
+
+  // For demo: show bouquet after 5 seconds
+  setTimeout(showBouquet, 5000);
+</script>
+
+</body>
+</html>
