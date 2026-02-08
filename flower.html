@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thumbelina Bouquet</title>
+<style>
+  body {
+    margin: 0;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #fefaf5; /* soft background */
+    overflow: hidden;
+  }
+
+  #bouquet {
+    display: none;
+    position: relative;
+    width: 300px;
+    height: 450px;
+  }
+
+  .flower {
+    position: absolute;
+    bottom: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    animation: rise 3s ease-out forwards;
+  }
+
+  /* Flower colors inspired by your image */
+  .pink { background: #ff9ec4; }
+  .lightpink { background: #ffc4d6; }
+  .peach { background: #ffb380; }
+  .yellow { background: #fff176; }
+  .purple { background: #c39aff; }
+  .blue { background: #a3d5ff; }
+  .red { background: #f06c6c; }
+
+  @keyframes rise {
+    0% { transform: translateY(450px) scale(0); opacity: 0; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+  }
+
+  #qr-container {
+    text-align: center;
+  }
+
+  img {
+    width: 200px;
+    height: 200px;
+  }
+
+  button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #c97ad1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div id="qr-container">
+  <h2>Scan this QR code</h2>
+  <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://your-bouquet-page.com&size=200x200" alt="QR Code">
+  <p>After scanning, view the Thumbelina bouquet!</p>
+</div>
+
+<div id="bouquet">
+  <!-- Multiple flowers with different colors -->
+  <div class="flower pink" style="left: 20px;"></div>
+  <div class="flower lightpink" style="left: 60px;"></div>
+  <div class="flower peach" style="left: 100px;"></div>
+  <div class="flower yellow" style="left: 140px;"></div>
+  <div class="flower purple" style="left: 180px;"></div>
+  <div class="flower blue" style="left: 220px;"></div>
+  <div class="flower red" style="left: 260px;"></div>
+</div>
+
+<script>
+  // Simulate scanning QR and showing bouquet
+  function showBouquet() {
+    document.getElementById('qr-container').style.display = 'none';
+    document.getElementById('bouquet').style.display = 'block';
+  }
+
+  // Demo: bouquet appears after 5 seconds
+  setTimeout(showBouquet, 5000);
+</script>
+
+</body>
+</html>
